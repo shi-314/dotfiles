@@ -1,7 +1,15 @@
+TerminalWindow .notebook {
+    padding: 0;
+    color: #fff;
+}
+
 TerminalWindow .notebook tab {
-    background-color: #e2e0dd;
+    background-color: #1D1F21;
+    border: none;
+    margin: 0;
+    padding: 3px 0px;
 }
 
 TerminalWindow .notebook tab:active {
-    background-color: #f2f1f0;
+    background-color: #76B800;
 }

@@ -3,3 +3,10 @@ style "vimfix" {
 }
 
 widget "vim-main-window.*GtkForm" style "vimfix"
+
+style "gnome_terminal_notebook"
+{
+    fg[NORMAL] = "#ffffff"
+}
+
+widget "*TerminalWindow.*.GtkNotebook*" style "gnome_terminal_notebook"

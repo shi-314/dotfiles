@@ -13,12 +13,23 @@ filetype plugin indent on    " required
 
 Bundle 'git://github.com/jsx/jsx.vim.git'
 Bundle 'scrooloose/nerdtree'
+Bundle 'jelera/vim-javascript-syntax'
+Bundle 'pangloss/vim-javascript'
+Bundle 'nathanaelkane/vim-indent-guides'
+Bundle 'Raimondi/delimitMate'
+Bundle 'tpope/vim-surround'
+Bundle 'Valloric/YouCompleteMe'
+Bundle 'tomtom/tcomment_vim'
+Bundle 'camelcasemotion'
+Bundle 'bling/vim-airline'
+Bundle 'tpope/vim-fugitive'
+Bundle 'jistr/vim-nerdtree-tabs'
+Bundle 'mbbill/undotree'
 
 if $COLORTERM == 'gnome-terminal'
     set t_Co=256
 endif
 
-set guifont="Source Code Pro"
 hi Cursor ctermbg=black
 hi Normal ctermbg=darkgray
 
@@ -38,38 +49,56 @@ hi Normal ctermbg=darkgray
     " Revert Color to default when leaving Insert Mode
     autocmd InsertLeave * highlight  CursorLine ctermbg=235 ctermfg=None
 
+"
 " Indentation
+"
 
-    set smartindent
-    set tabstop=4
-    set shiftwidth=4
-    set expandtab
+set smartindent
+set tabstop=4
+set shiftwidth=4
+set expandtab
 
 " Backspace behavior
-    set backspace=indent,eol,start
+set backspace=indent,eol,start
 
 "
 " General settings
 "
 
-    " Decrease delay when switching between modes
-    set timeoutlen=1000 ttimeoutlen=0
-    let mapleader = ','
-    colorscheme hybrid
-    set background=dark
+let mapleader = ','
+colorscheme hybrid
+set background=dark
+set sessionoptions+=winpos,resize
 
-    set noswapfile
+set timeoutlen=1000 ttimeoutlen=0 " Decrease delay when switching between modes
+
+set noswapfile
+
+" Tell vim to remember certain things when we exit
+"  '10  :  marks will be remembered for up to 10 previously edited files
+"  "100 :  will save up to 100 lines for each register
+"  :20  :  up to 20 lines of command-line history will be remembered
+"  %    :  saves and restores the buffer list
+"  n... :  where to save the viminfo files
+set viminfo='10,\"100,:20,%,n~/.viminfo
+function! ResCur()
+  if line("'\"") <= line("$")
+    normal! g`"
+    return 1
+  endif
+endfunction
+
+augroup resCur
+  autocmd!
+  autocmd BufWinEnter * call ResCur()
+augroup END
+
+" Split char appearance
+set fillchars=vert:│
 
 set conceallevel=2
 let b:javascript_enable_domhtmlcss=1
 let g:javascript_conceal=1
-
-Bundle 'jelera/vim-javascript-syntax'
-Bundle 'pangloss/vim-javascript'
-Bundle 'nathanaelkane/vim-indent-guides'
-Bundle 'Raimondi/delimitMate'
-Bundle 'tpope/vim-surround'
-Bundle 'Valloric/YouCompleteMe'
 
 " These are the tweaks I apply to YCM's config, you don't need them but they
 " might help.
@@ -88,48 +117,51 @@ autocmd FileType javascript noremap <buffer>  <c-f> :call JsBeautify()<cr>
 autocmd FileType html noremap <buffer> <c-f> :call HtmlBeautify()
 autocmd FileType css noremap <buffer> <c-f> :call CSSBeautify()<cr>
 
-set guioptions-=L
-set guioptions-=l
-set guioptions-=R
-set guioptions-=r
-set sessionoptions+=winpos,resize
-
 set completeopt-=preview
 
-Bundle 'tomtom/tcomment_vim'
-Bundle 'camelcasemotion'
-
 set number
+
+function! NumberToggle()
+    if(&nu == 1)
+        set nu!
+        set rnu
+    else
+        set nornu
+        set nu
+    endif
+endfunction
+
+
+nnoremap <C-n> :call NumberToggle()<cr>
+
+"
+" NERDTree settings
+"
+
+let NERDTreeShowBookmarks=1
+map <C-e> :NERDTreeToggle<CR>:NERDTreeMirror<CR>
 let NERDTreeShowLineNumbers=0
-
-" Highlight problematic whitespace
-set listchars=tab:›\ ,trail:•,extends:#,nbsp:. 
-
-Bundle 'bling/vim-airline'
-    set laststatus=2
-    let g:airline_theme='powerlineish'
-    let g:airline_powerline_fonts=1
-
-Bundle 'tpope/vim-fugitive'
 
 " Open NERDTree in new tabs and windows if no command line args set
 autocmd VimEnter * if !argc() | NERDTree | endif
 autocmd BufEnter * if !argc() | NERDTreeMirror | endif
-Bundle 'jistr/vim-nerdtree-tabs'
 
-let NERDTreeShowBookmarks=1
+" Highlight problematic whitespace
+set listchars=tab:›\ ,trail:•,extends:#,nbsp:. 
 
-map <C-e> :NERDTreeToggle<CR>:NERDTreeMirror<CR>
+" Airline
+    set laststatus=2
+    let g:airline_theme='powerlineish'
+    let g:airline_powerline_fonts=1
+
 
 " UndoTree
-Bundle 'mbbill/undotree'
   nnoremap <Leader>u :UndotreeToggle<CR>
-  " If undotree is opened, it is likely one wants to interact with it.
   let g:undotree_SetFocusWhenToggle=1
 
 highlight LineNr guifg=#666666
+
 set cursorline
-set relativenumber
 
 set hlsearch                    " Highlight search terms
 

@@ -1,4 +1,4 @@
-set guifont=Source\ Code\ Pro\ for\ Powerline\ 11
+set guifont=Ubuntu\ Mono\ derivative\ Powerline\ 13
 
 set guioptions-=m  "remove menu bar
 set guioptions-=T  "remove toolbar
