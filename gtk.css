@@ -1,6 +1,7 @@
 TerminalWindow .notebook {
     padding: 0;
     color: #fff;
+    border: 0;
 }
 
 TerminalWindow .notebook tab {
