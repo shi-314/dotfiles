@@ -1,0 +1,24 @@
+[user]
+  name = Shivan
+  email = shi.taher@gmail.com
+
+[core]
+  editor = vim
+
+[color]
+  diff = auto
+  status = auto
+  branch = auto
+  interactive = auto
+  ui = true
+  pager = true
+
+[push]
+  default = simple
+
+[url "git@github.com:"]
+  insteadOf = https://github.com/
+
+[credential]
+    helper = cache
+
