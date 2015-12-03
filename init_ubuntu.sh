@@ -18,3 +18,14 @@ sudo apt-get install --no-install-recommends libboost-all-dev
 sudo apt-get install libgflags-dev libgoogle-glog-dev liblmdb-dev
 sudo apt-get install libatlas-base-dev
 sudo apt-get install protobuf glog gflags hdf5
+
+# caffe python deps
+
+sudo apt-get install python-numpy
+sudo apt-get install python-pip
+sudo apt-get install python-scipy
+
+wget https://bitbucket.org/pypa/setuptools/raw/bootstrap/ez_setup.py 
+sudo python ez_setup.py
+
+pip install scikit-image
