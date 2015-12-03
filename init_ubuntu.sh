@@ -28,4 +28,5 @@ sudo apt-get install python-scipy
 wget https://bitbucket.org/pypa/setuptools/raw/bootstrap/ez_setup.py 
 sudo python ez_setup.py
 
-pip install scikit-image
+sudo pip install scikit-image
+sudo pip install protobuf
