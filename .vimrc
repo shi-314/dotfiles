@@ -26,6 +26,7 @@ Bundle 'bling/vim-airline'
 Bundle 'tpope/vim-fugitive'
 Bundle 'jistr/vim-nerdtree-tabs'
 Bundle 'mbbill/undotree'
+Bundle 'ctrlpvim/ctrlp.vim'
 
 if $COLORTERM == 'gnome-terminal'
     set t_Co=256
@@ -36,7 +37,7 @@ hi Normal ctermbg=darkgray
 
 "
 " Change cursor shape in different modes
-" 
+"
 
     " Enable CursorLine
     set cursorline
@@ -55,7 +56,7 @@ hi Normal ctermbg=darkgray
 "
 
 set smartindent
-set tabstop=4
+set tabstop=8
 set shiftwidth=4
 set expandtab
 
@@ -66,11 +67,12 @@ set backspace=indent,eol,start
 " General settings
 "
 
-let mapleader = ','
+let mapleader = "\<Space>"
 colorscheme hybrid
 set background=dark
 set sessionoptions+=winpos,resize
 
+set colorcolumn=100
 set timeoutlen=1000 ttimeoutlen=0 " Decrease delay when switching between modes
 
 set noswapfile
@@ -148,7 +150,7 @@ autocmd VimEnter * if !argc() | NERDTree | endif
 autocmd BufEnter * if !argc() | NERDTreeMirror | endif
 
 " Highlight problematic whitespace
-set listchars=tab:›\ ,trail:•,extends:#,nbsp:. 
+set listchars=tab:›\ ,trail:•,extends:#,nbsp:.
 
 " Airline
     set laststatus=2
@@ -183,4 +185,22 @@ set clipboard=unnamedplus
     nnoremap <F4> :make!<cr>
     set exrc
     set secure
-    nnoremap <leader>jd :YcmCompleter GoTo<CR> 
+
+    nnoremap <leader>jd :YcmCompleter GoTo<CR>
+    nnoremap <leader>j :lnext<CR>
+    nnoremap <leader>k :lprevious<CR>
+    nnoremap <F5> :YcmForceCompileAndDiagnostics<CR>
+
+
+
+" Ctrlp
+let g:ctrlp_root_markers = ['.ctrlp']
+let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|\.git'
+
+func! DeleteTrailingWS()
+  exe "normal mz"
+  %s/\s\+$//ge
+  exe "normal `z"
+endfunc
+
+noremap <leader>w :call DeleteTrailingWS()<CR>
