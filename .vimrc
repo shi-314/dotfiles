@@ -68,7 +68,7 @@ set backspace=indent,eol,start
 "
 
 let mapleader = "\<Space>"
-colorscheme hybrid
+colorscheme basic-light
 set background=dark
 set sessionoptions+=winpos,resize
 
@@ -153,6 +153,7 @@ autocmd BufEnter * if !argc() | NERDTreeMirror | endif
 set listchars=tab:›\ ,trail:•,extends:#,nbsp:.
 
 " Airline
+    Plugin 'vim-airline/vim-airline-themes'
     set laststatus=2
     let g:airline_theme='powerlineish'
     let g:airline_powerline_fonts=1
