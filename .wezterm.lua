@@ -7,7 +7,10 @@ config.color_scheme = 'hardhacker'
 config.window_background_opacity = 0.9
 config.hide_tab_bar_if_only_one_tab = true
 config.font_size = 11
-config.dpi = 90
+config.dpi_by_screen = {
+  ['LG HDR QHD'] = 90,
+  ['Built-in Retina Display'] = 160
+}
 
 config.keys = {
   {
