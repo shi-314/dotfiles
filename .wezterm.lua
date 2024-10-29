@@ -3,8 +3,11 @@ local act = wezterm.action
 
 local config = {}
 
-config.color_scheme = 'hardhacker'
+-- config.color_scheme = 'Atom (Gogh)'
+config.color_scheme = 'Argonaut'
 config.window_background_opacity = 0.9
+config.macos_window_background_blur = 20
+
 config.hide_tab_bar_if_only_one_tab = true
 config.font_size = 12
 config.dpi_by_screen = {
