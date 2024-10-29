@@ -6,11 +6,13 @@ local config = {}
 config.color_scheme = 'hardhacker'
 config.window_background_opacity = 0.9
 config.hide_tab_bar_if_only_one_tab = true
-config.font_size = 11
+config.font_size = 12
 config.dpi_by_screen = {
-  ['LG HDR QHD'] = 90,
-  ['Built-in Retina Display'] = 160
+  ['LG HDR QHD'] = 80,
+  ['Built-in Retina Display'] = 144
 }
+-- config.font = wezterm.font 'Menlo'
+-- config.font = wezterm.font("Menlo", {weight="Regular", stretch="Normal", style="Normal"})
 
 config.keys = {
   {
