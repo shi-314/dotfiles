@@ -36,6 +36,12 @@ require("lazy").setup({
 			"stevearc/conform.nvim",
 			opts = {},
 		},
+		{
+			"nvzone/typr",
+			dependencies = "nvzone/volt",
+			opts = {},
+			cmd = { "Typr", "TyprStats" },
+		},
 	},
 	ui = {
 		border = "rounded",
