@@ -45,4 +45,9 @@ config.keys = {
 config.initial_rows = 60
 config.initial_cols = 160
 
+config.inactive_pane_hsb = {
+	saturation = 0.6,
+	brightness = 0.4,
+}
+
 return config
