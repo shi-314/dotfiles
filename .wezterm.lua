@@ -9,6 +9,18 @@ config.window_background_opacity = 0.9
 config.macos_window_background_blur = 20
 
 config.hide_tab_bar_if_only_one_tab = true
+config.show_new_tab_button_in_tab_bar = false
+config.window_frame = {
+	active_titlebar_bg = "#0d0d0d",
+	inactive_titlebar_bg = "#0d0d0d",
+}
+config.colors = {
+	tab_bar = {
+		active_tab = { bg_color = "#1a1a1a", fg_color = "#c0c0c0", intensity = "Normal" },
+		inactive_tab = { bg_color = "#0d0d0d", fg_color = "#353535", intensity = "Normal" },
+		inactive_tab_hover = { bg_color = "#1a1a1a", fg_color = "#909090" },
+	},
+}
 config.font_size = 12
 config.dpi = 86
 config.dpi_by_screen = {
@@ -39,6 +51,11 @@ config.keys = {
 		key = "DownArrow",
 		mods = "CTRL|SHIFT",
 		action = act.ActivatePaneDirection("Down"),
+	},
+	{
+		key = "Enter",
+		mods = "SHIFT",
+		action = act.SendString("\x1b[13;2u"),
 	},
 }
 
