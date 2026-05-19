@@ -15,6 +15,9 @@ config.window_frame = {
 	inactive_titlebar_bg = "#0d0d0d",
 }
 config.colors = {
+	cursor_bg = "#f7768e",
+	cursor_fg = "#1a1b26",
+	cursor_border = "#f7768e",
 	tab_bar = {
 		active_tab = { bg_color = "#1a1a1a", fg_color = "#c0c0c0", intensity = "Normal" },
 		inactive_tab = { bg_color = "#0d0d0d", fg_color = "#353535", intensity = "Normal" },
