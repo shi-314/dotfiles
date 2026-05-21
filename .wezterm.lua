@@ -25,14 +25,14 @@ config.colors = {
 	},
 }
 config.font_size = 12
+config.line_height = 1.1
 config.dpi = 86
 config.dpi_by_screen = {
 	["LG HDR QHD"] = 80,
 	["Built-in Retina Display"] = 144,
 	["LEN T27h-20"] = 75,
 }
--- config.font = wezterm.font 'Menlo'
--- config.font = wezterm.font("Menlo", {weight="Regular", stretch="Normal", style="Normal"})
+config.font = wezterm.font("JetBrainsMono Nerd Font Mono")
 
 config.keys = {
 	{
